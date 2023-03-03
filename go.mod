@@ -1,6 +1,7 @@
-module github.com/btcsuite/btcd
+module github.com/rollkit/btcd
 
 require (
+	github.com/btcsuite/btcd v0.23.0
 	github.com/btcsuite/btcd/btcec/v2 v2.1.3
 	github.com/btcsuite/btcd/btcutil v1.1.0
 	github.com/btcsuite/btcd/chaincfg/chainhash v1.0.1
