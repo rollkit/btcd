@@ -226,16 +226,15 @@ func (b *ScriptBuilder) AddData(data []byte) *ScriptBuilder {
 		return b
 	}
 
-	// Pushes that would cause the script to exceed the largest allowed
-	// script size would result in a non-canonical script.
-	dataSize := canonicalDataSize(data)
-	if len(b.script)+dataSize > MaxScriptSize {
-		str := fmt.Sprintf("adding %d bytes of data would exceed the "+
-			"maximum allowed canonical script length of %d",
-			dataSize, MaxScriptSize)
-		b.err = ErrScriptNotCanonical(str)
-		return b
-	}
+	// Removed in order to allow for large data pushes enabled by taproot
+	// dataSize := canonicalDataSize(data)
+	// if len(b.script)+dataSize > MaxScriptSize {
+	// 	str := fmt.Sprintf("adding %d bytes of data would exceed the "+
+	// 		"maximum allowed canonical script length of %d",
+	// 		dataSize, MaxScriptSize)
+	// 	b.err = ErrScriptNotCanonical(str)
+	// 	return b
+	// }
 
 	// Pushes larger than the max script element size would result in a
 	// script that is not canonical.
